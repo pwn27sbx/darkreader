@@ -290,7 +290,7 @@ function modifyBorderHSL({h, s, l, a}: HSLA, poleFg: HSLA, poleBg: HSLA): HSLA {
         }
     }
 
-    const lx = scale(l, 0, 1, 0.5, 0.2);
+    const lx = Math.min(1, Math.max(0, scale(l, 0, 1, 0.5, 0.2) + (poleBg.l - 0.21)));
 
     return {h: hx, s: sx, l: lx, a};
 }
